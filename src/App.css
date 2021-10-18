@@ -1,0 +1,14 @@
+.App {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 16px;
+  padding-bottom: 24px;
+}
+
+.Toastify__toast {
+  background-color: #d6dcff;
+}
+
+.Toastify__toast-theme--light {
+  color: black;
+}
