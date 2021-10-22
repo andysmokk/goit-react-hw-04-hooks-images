@@ -6,6 +6,7 @@ import ImageGalleryItem from '../ImageGalleryItem/ImageGalleryItem';
 import imagesAPI from '../../services/imagesApi';
 import ButtonLoadMore from '../ButtonLoadMore/ButtonLoadMore';
 import LoaderSpinner from '../LoaderSpinner/LoaderSpinner';
+import scrollLoadMore from '../../services/scrollLoadMore';
 
 const Status = {
   IDLE: 'idle',
@@ -32,6 +33,7 @@ export default function ImageGallery({ imageName, onOpenModal }) {
           if (images.hits.length > 0) {
             setImages(images.hits);
             setStatus(Status.RESOLVED);
+            scrollLoadMore();
           } else
             toast.info(
               `Картинок с названием ${`"${imageName}"`} нет. Введите новое название.`,
@@ -41,12 +43,11 @@ export default function ImageGallery({ imageName, onOpenModal }) {
     }, 1000);
   }, [imageName, page]);
 
+  console.log(images);
+
   useEffect(() => {
-    window.scrollTo({
-      top: document.documentElement.scrollHeight,
-      behavior: 'smooth',
-    });
-  });
+    scrollLoadMore();
+  }, [images]);
 
   const loadMore = moreImages => {
     // const { images } = this.state;
