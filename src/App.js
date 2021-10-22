@@ -8,7 +8,7 @@ import Modal from './components/Modal/Modal';
 
 class App extends Component {
   state = {
-    imageName: 0,
+    imageName: '',
     showModal: false,
     currentImage: '',
     page: 1,

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
+import PropTypes from 'prop-types';
 import s from './ImageGallery.module.css';
 import ImageGalleryItem from '../ImageGalleryItem/ImageGalleryItem';
 import imagesAPI from '../../services/imagesApi';
@@ -80,6 +81,10 @@ export default function ImageGallery({ imageName, onOpenModal }) {
   }
 }
 
+ImageGallery.propTypes = {
+  imageName: PropTypes.string.isRequired,
+  onOpenModal: PropTypes.func.isRequired,
+};
 // class ImageGallery extends Component {
 //   state = {
 //     images: [],
